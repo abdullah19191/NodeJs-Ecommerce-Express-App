@@ -3,7 +3,7 @@ const productsdata = require("./constants/productdata");
 
 const DefaltData = async () => {
   try {
-    await Products.deleteMany({})
+    await Products.deleteMany({});
     const storeData = await Products.insertMany(productsdata);
     console.log(storeData);
   } catch (error) {
