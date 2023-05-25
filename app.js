@@ -10,6 +10,8 @@ const cors = require("cors");
 const router = require("./routes/router");
 const bodyParser = require("body-parser");
 const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -21,12 +23,10 @@ app.post("/pay",async (req,res)=>{
     currency:"usd",
   })
 })
-app.use(express.json());
-app.use(cors());
-app.use(router);
+// app.use(router);
 console.log("hello")
 app.listen(port, () => {
   console.log(`server is running on port number ${port}`);
 });
 
-DefaltData();
+// DefaltData();
